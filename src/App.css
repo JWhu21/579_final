@@ -1,0 +1,118 @@
+/* App.css */
+/* App.css */
+.App {
+  display: flex;
+  flex-direction: column; /* Changed to vertical layout */
+  align-items: center; /* Center aligns child elements */
+  height: 100vh; /* Full viewport height */
+  background-color: #282c34; /* Maintain consistent background color */
+}
+
+.task-input {
+  width: 100%; /* Task input spans the top width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px; /* Add padding on top and bottom, keep left and right as is */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow effect to the top element */
+  background-color: #f0f0f0; /* Background color */
+  z-index: 1000; /* Ensure it is at the top layer */
+}
+
+.task-input > * {
+  margin: 0 10px;
+}
+
+.columns-container {
+  display: flex;
+  width: 100%; /* Columns fill the remaining width */
+  flex-grow: 1; /* Occupy all remaining space */
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+  border-right: 2px solid #ccc;
+  overflow-y: auto; /* Allow scrolling if column content is too much */
+  background-color: #f8d7da; /* Default background color, can be modified by class name */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add shadow effect */
+  min-height: 0; /* Reset minimum height */
+}
+
+/* Background colors for other columns */
+.in-progress { background-color: #fff3cd; }
+.done { background-color: #d4edda; }
+
+/* Ensure the last column has no right border */
+.column:last-child {
+  border-right: none;
+}
+
+.countdown {
+  font-weight: bold;
+  color: #333; /* Darker color for contrast */
+}
+
+/* Styles for the task card */
+.task-item {
+  background-color: #ffffff; /* Light background for the task */
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 10px; /* Space between tasks */
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Soft shadow for depth */
+  display: flex;
+  justify-content: space-between; /* Separate the task text and buttons */
+  align-items: center;
+}
+
+/* Style adjustments for the task text and countdown */
+.task-text, .countdown {
+  margin-right: 16px; /* Spacing to the right of text and countdown */
+}
+
+/* Container for the buttons to separate from the task card */
+.buttons-container {
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  position: absolute; /* Position the buttons container absolutely */
+  right: 20px; /* Distance from the right edge of the parent container */
+  top: 50%; /* Align to the vertical center of the parent container */
+  transform: translateY(-50%); /* Offset the container by half its height */
+}
+
+/* Button styles */
+button {
+  background-color: #4CAF50; /* A green background */
+  border: none; /* No border */
+  color: white; /* White text */
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  transition-duration: 0.4s; /* Smooth transition for hover effect */
+  cursor: pointer; /* Cursor indicates clickable buttons */
+  border-radius: 4px; /* Rounded corners */
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background-color: white;
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+}
+
+/* Adjust position for task container to accommodate buttons */
+.task-container {
+  position: relative; /* Set the reference for absolute positioning of children */
+  padding-right: 120px; /* Extra space for buttons */
+}
+
+.task-text {
+  font-size: 16px; /* Or any size you prefer */
+  font-weight: bold; /* Makes the text bold */
+  color: red; /* Sets the text color to red */
+  text-overflow: ellipsis; /* Adds an ellipsis (...) if the text is too long */
+  max-width: 60%; /* Adjust as needed to fit your layout */
+}
